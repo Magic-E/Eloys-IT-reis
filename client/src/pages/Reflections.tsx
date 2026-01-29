@@ -1,12 +1,13 @@
 import { useReflections } from "@/hooks/use-dashboard";
 import { motion } from "framer-motion";
-import { Quote, Sparkles, Target, Search } from "lucide-react";
+import { Quote, Sparkles, Target, Search, Building } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const topicIcons: Record<string, React.ReactNode> = {
-  "Joy of Creating": <Sparkles className="w-6 h-6 text-yellow-400" />,
-  "Future": <Target className="w-6 h-6 text-primary" />,
-  "Intake Review": <Search className="w-6 h-6 text-accent" />,
+  "Persoonlijke Groei": <Target className="w-6 h-6 text-primary" />,
+  "Plezier in creëren": <Sparkles className="w-6 h-6 text-yellow-400" />,
+  "Toekomst & AI": <Search className="w-6 h-6 text-accent" />,
+  "Organisatie": <Building className="w-6 h-6 text-purple-400" />,
 };
 
 export default function Reflections() {
@@ -30,10 +31,10 @@ export default function Reflections() {
         >
           <Quote className="w-12 h-12 text-primary mx-auto mb-4 opacity-50" />
           <h1 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Reflecting on the Journey
+            Terugblik op de reis
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            "The joy of creating" — Finding validation in my work at other organizations and realizing that we are on the right track.
+            "The joy of creating" — Bevestiging vinden in mijn werk bij andere organisaties en beseffen dat we op de goede weg zijn.
           </p>
         </motion.div>
 

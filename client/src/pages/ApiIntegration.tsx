@@ -63,7 +63,7 @@ export default function ApiIntegration() {
                 className="w-full sm:w-auto"
               >
                 <RefreshCw className={`mr-2 h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
-                Nieuwe Grap Ophalen
+                Nieuwe grap ophalen
               </Button>
             </CardContent>
           </Card>

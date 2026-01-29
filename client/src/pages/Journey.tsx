@@ -34,9 +34,9 @@ export default function Journey() {
           animate={{ opacity: 1, y: 0 }}
           className="mb-16 text-center"
         >
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">My Learning Journey</h1>
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Mijn leerreis</h1>
           <p className="text-muted-foreground text-lg">
-            From basic modules to the final assessment, track my progress through the curriculum.
+            Van basismodules tot eindopdracht, volg mijn voortgang door het curriculum.
           </p>
         </motion.div>
 
@@ -95,7 +95,7 @@ export default function Journey() {
 
                       {item.keyLearnings && (
                         <div className="space-y-2">
-                          <h4 className="text-xs font-semibold text-white/80 uppercase">Key Learnings</h4>
+                          <h4 className="text-xs font-semibold text-white/80 uppercase">Belangrijkste lessen</h4>
                           <ul className="text-sm text-muted-foreground space-y-1">
                             {item.keyLearnings.map((learning, i) => (
                               <li key={i} className="flex items-start gap-2">

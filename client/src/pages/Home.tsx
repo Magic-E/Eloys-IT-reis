@@ -27,19 +27,19 @@ export default function Home() {
               <span className="text-gradient">Creating Future IT</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-              Explore my journey through the IT modules, from data warehousing to AI innovation. 
-              Discover the skills I've mastered and the projects I've built.
+              Ontdek mijn reis door de IT-modules, van datawarehousing tot AI-innovatie. 
+              Bekijk de vaardigheden die ik heb ontwikkeld en de projecten die ik heb gebouwd.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/journey">
-                <Button size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto">
-                  View Timeline <ArrowRight className="ml-2 w-4 h-4" />
+                <Button size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto" data-testid="button-view-timeline">
+                  Bekijk tijdlijn <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link href="/skills">
-                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto bg-white/5 border-white/10 hover:bg-white/10">
-                  Check Skills
+                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto bg-white/5 border-white/10 hover:bg-white/10" data-testid="button-check-skills">
+                  Bekijk vaardigheden
                 </Button>
               </Link>
             </div>
@@ -49,20 +49,20 @@ export default function Home() {
           <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard 
               icon={<Database className="w-8 h-8 text-accent" />}
-              title="Data & Hybrid IT"
-              description="Mastering the foundations of modern infrastructure and data warehousing."
+              title="Data & Hybride IT"
+              description="De basis van moderne infrastructuur en datawarehousing onder de knie."
               delay={0.2}
             />
             <FeatureCard 
               icon={<BrainCircuit className="w-8 h-8 text-primary" />}
-              title="AI & Innovation"
-              description="Exploring the impact of agents and future tech trends."
+              title="AI & Innovatie"
+              description="Verkenning van de impact van AI-agents en toekomstige technologietrends."
               delay={0.4}
             />
             <FeatureCard 
               icon={<Layers className="w-8 h-8 text-purple-400" />}
               title="Agile & Prince2"
-              description="Bridging the gap between rigid planning and agile execution."
+              description="De brug slaan tussen strakke planning en agile uitvoering."
               delay={0.6}
             />
           </div>

@@ -13,9 +13,6 @@ export default function Skills() {
       </div>
     );
   }
-
-  // Group skills by category if needed, or display all in one big chart
-  // For this design, we'll split slightly or use color coding
   
   return (
     <div className="min-h-screen py-16 bg-background">
@@ -25,10 +22,10 @@ export default function Skills() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Skill Evolution</h1>
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">Vaardigheidsgroei</h1>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Visualizing the growth from the start of the course to now. 
-            The radar chart highlights my development in technical and soft skills.
+            Visualisatie van de groei vanaf het begin van de opleiding tot nu. 
+            De radargrafiek toont mijn ontwikkeling in technische en soft skills.
           </p>
         </motion.div>
 
@@ -55,14 +52,14 @@ export default function Skills() {
                 />
                 <Legend />
                 <Radar
-                  name="Level Before"
+                  name="Niveau voor"
                   dataKey="levelBefore"
                   stroke="#94a3b8"
                   fill="#94a3b8"
                   fillOpacity={0.1}
                 />
                 <Radar
-                  name="Level After"
+                  name="Niveau na"
                   dataKey="levelAfter"
                   stroke="hsl(var(--primary))"
                   fill="hsl(var(--primary))"
@@ -74,7 +71,7 @@ export default function Skills() {
 
           {/* Details List */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">Detailed Breakdown</h2>
+            <h2 className="text-2xl font-bold mb-6 border-b border-white/10 pb-4">Gedetailleerd overzicht</h2>
             <div className="grid gap-4">
               {skills?.map((skill, index) => (
                 <motion.div
@@ -90,12 +87,12 @@ export default function Skills() {
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="text-right">
-                      <div className="text-xs text-muted-foreground">Before</div>
+                      <div className="text-xs text-muted-foreground">Voor</div>
                       <div className="font-mono text-muted-foreground">{skill.levelBefore}/10</div>
                     </div>
                     <div className="h-8 w-px bg-white/10" />
                     <div className="text-right">
-                      <div className="text-xs text-primary font-medium">After</div>
+                      <div className="text-xs text-primary font-medium">Na</div>
                       <div className="font-mono text-primary font-bold text-lg">{skill.levelAfter}/10</div>
                     </div>
                   </div>

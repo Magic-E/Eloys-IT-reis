@@ -13,7 +13,7 @@ interface Message {
 export function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Hi! I'm Eloy's Digital Twin. Ask me anything about my IT journey, skills, or projects!" }
+    { role: "assistant", content: "Hallo! Ik ben Eloy's Digitale Tweeling. Stel me gerust vragen over mijn IT-reis, vaardigheden of projecten!" }
   ]);
   const [inputValue, setInputValue] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,7 @@ export function ChatWidget() {
       const data = await chatMutation.mutateAsync({ message: userMessage });
       setMessages(prev => [...prev, { role: "assistant", content: data.response }]);
     } catch (error) {
-      setMessages(prev => [...prev, { role: "assistant", content: "I'm having trouble connecting right now. Please try again later." }]);
+      setMessages(prev => [...prev, { role: "assistant", content: "Er is momenteel een probleem met de verbinding. Probeer het later opnieuw." }]);
     }
   };
 
@@ -62,8 +62,8 @@ export function ChatWidget() {
                     <Sparkles className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-white font-bold text-sm">Eloy's Digital Twin</h3>
-                    <p className="text-white/70 text-xs">Powered by AI</p>
+                    <h3 className="text-white font-bold text-sm">Eloy's Digitale Tweeling</h3>
+                    <p className="text-white/70 text-xs">Aangedreven door AI</p>
                   </div>
                 </div>
                 <Button 
@@ -71,6 +71,7 @@ export function ChatWidget() {
                   variant="ghost" 
                   className="text-white hover:bg-white/20 h-8 w-8"
                   onClick={() => setIsOpen(false)}
+                  data-testid="button-close-chat"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -110,15 +111,17 @@ export function ChatWidget() {
                   <Input
                     value={inputValue}
                     onChange={(e) => setInputValue(e.target.value)}
-                    placeholder="Ask a question..."
+                    placeholder="Stel een vraag..."
                     className="flex-1 bg-secondary/50 border-white/10 focus:ring-primary"
                     disabled={chatMutation.isPending}
+                    data-testid="input-chat-message"
                   />
                   <Button 
                     type="submit" 
                     size="icon" 
                     className="bg-primary hover:bg-primary/90"
                     disabled={chatMutation.isPending || !inputValue.trim()}
+                    data-testid="button-send-chat"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -133,6 +136,7 @@ export function ChatWidget() {
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsOpen(!isOpen)}
           className="h-14 w-14 rounded-full bg-gradient-to-r from-primary to-accent shadow-lg shadow-primary/25 flex items-center justify-center text-white"
+          data-testid="button-open-chat"
         >
           {isOpen ? <X className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
         </motion.button>
