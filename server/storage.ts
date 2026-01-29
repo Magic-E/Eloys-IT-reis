@@ -1,38 +1,61 @@
-import { type User, type InsertUser } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { db } from "./db";
+import {
+  assignments,
+  skills,
+  reflections,
+  type Assignment,
+  type Skill,
+  type Reflection,
+  type InsertAssignment,
+  type InsertSkill,
+  type InsertReflection,
+} from "@shared/schema";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  getAssignments(): Promise<Assignment[]>;
+  getAssignment(id: number): Promise<Assignment | undefined>;
+  getSkills(): Promise<Skill[]>;
+  getReflections(): Promise<Reflection[]>;
+  
+  // Seed methods
+  createAssignment(assignment: InsertAssignment): Promise<Assignment>;
+  createSkill(skill: InsertSkill): Promise<Skill>;
+  createReflection(reflection: InsertReflection): Promise<Reflection>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-
-  constructor() {
-    this.users = new Map();
+export class DatabaseStorage implements IStorage {
+  async getAssignments(): Promise<Assignment[]> {
+    return await db.select().from(assignments).orderBy(assignments.moduleNumber);
   }
 
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+  async getAssignment(id: number): Promise<Assignment | undefined> {
+    const [assignment] = await db.select().from(assignments).where(eq(assignments.id, id));
+    return assignment;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+  async getSkills(): Promise<Skill[]> {
+    return await db.select().from(skills);
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
+  async getReflections(): Promise<Reflection[]> {
+    return await db.select().from(reflections);
+  }
+
+  async createAssignment(insertAssignment: InsertAssignment): Promise<Assignment> {
+    const [assignment] = await db.insert(assignments).values(insertAssignment).returning();
+    return assignment;
+  }
+
+  async createSkill(insertSkill: InsertSkill): Promise<Skill> {
+    const [skill] = await db.insert(skills).values(insertSkill).returning();
+    return skill;
+  }
+
+  async createReflection(insertReflection: InsertReflection): Promise<Reflection> {
+    const [reflection] = await db.insert(reflections).values(insertReflection).returning();
+    return reflection;
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
