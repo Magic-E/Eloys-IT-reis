@@ -25,7 +25,7 @@ export function Navigation() {
               <span className="text-white font-display font-bold text-lg">E</span>
             </div>
             <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
-              Eloy's Dashboard
+              Eloy's Leerdashboard
             </span>
           </Link>
 
