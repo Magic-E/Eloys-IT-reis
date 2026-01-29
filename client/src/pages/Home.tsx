@@ -4,18 +4,16 @@ import { Link } from "wouter";
 import { ArrowRight, BrainCircuit, Database, Layers, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import slide1 from "@/assets/images/slide-1-waardeketen.jpg";
-import slide2 from "@/assets/images/slide-2-cloud.jpg";
-import slide3 from "@/assets/images/slide-3-datawarehouse.jpg";
-import slide4 from "@/assets/images/slide-4-ai.jpg";
-import slide5 from "@/assets/images/slide-5-reflectie.jpg";
+import slideDashboard from "@/assets/images/hero-learning.jpg";
+import slideICM from "@/assets/images/slide-icm.jpg";
+import slideGemeente from "@/assets/images/slide-gemeente.jpg";
+import slideSmartForest from "@/assets/images/slide-smart-forest.png";
 
 const slides = [
-  { image: slide1, title: "Opdracht 1", subtitle: "Waardeketen & IM Rol" },
-  { image: slide2, title: "Opdracht 2", subtitle: "Hybride IT & Cloud" },
-  { image: slide3, title: "Opdracht 3", subtitle: "Datawarehouse" },
-  { image: slide4, title: "Opdracht 4", subtitle: "AI Innovatie" },
-  { image: slide5, title: "Opdracht 5", subtitle: "Reflectie" },
+  { image: slideDashboard, title: "Leerdashboard", subtitle: "IT Basisopleiding Overzicht" },
+  { image: slideICM, title: "ICM Opleidingen", subtitle: "Waar ik de opleiding volg" },
+  { image: slideGemeente, title: "Gemeente Heerlen", subtitle: "Mijn werkgever" },
+  { image: slideSmartForest, title: "Smart Forest Guardian", subtitle: "6G Innovatie Project" },
 ];
 
 export default function Home() {
