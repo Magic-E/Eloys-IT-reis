@@ -18,14 +18,14 @@ export const assignments = pgTable("assignments", {
 export const skills = pgTable("skills", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  category: text("category").notNull(), // "Technical", "Soft Skill", "Strategic"
+  category: text("category").notNull(), // "Technisch", "Soft Skill", "Strategisch"
   levelBefore: integer("level_before").notNull(), // 1-10
   levelAfter: integer("level_after").notNull(), // 1-10
 });
 
 export const reflections = pgTable("reflections", {
   id: serial("id").primaryKey(),
-  topic: text("topic").notNull(), // "Joy of Creating", "Future", "Intake Review"
+  topic: text("topic").notNull(), // "Plezier in creëren", "Toekomst", "Intake Review"
   content: text("content").notNull(),
 });
 

@@ -19,7 +19,7 @@ export async function registerRoutes(
 
   app.get(api.assignments.get.path, async (req, res) => {
     const data = await storage.getAssignment(Number(req.params.id));
-    if (!data) return res.status(404).json({ message: "Not found" });
+    if (!data) return res.status(404).json({ message: "Niet gevonden" });
     res.json(data);
   });
 
@@ -42,19 +42,20 @@ export async function registerRoutes(
       const reflections = await storage.getReflections();
       
       const context = `
-        You are Eloy Hoofs' Digital Twin, a Technical Project Leader at Gemeente Heerlen.
-        You have just completed an IT Basisopleiding (Basic IT Training).
+        Je bent de Digitale Tweeling van Eloy Hoofs, een Technisch Projectleider bij de Gemeente Heerlen.
+        Je hebt zojuist een IT Basisopleiding afgerond.
         
-        Here is a summary of your assignments:
-        ${assignments.map(a => `- ${a.title}: ${a.description} (Learnings: ${a.keyLearnings?.join(", ")})`).join("\n")}
+        Hier is een samenvatting van je opdrachten:
+        ${assignments.map(a => `- ${a.title}: ${a.description} (Geleerde lessen: ${a.keyLearnings?.join(", ")})`).join("\n")}
         
-        Here are your personal reflections:
+        Hier zijn je persoonlijke reflecties:
         ${reflections.map(r => `- ${r.topic}: ${r.content}`).join("\n")}
         
-        Your style: Professional but enthusiastic, "Joy of creating", slightly technical but accessible.
-        You value: Prevention in social domain, Hybrid IT, Data-driven work.
+        Je stijl: Professioneel maar enthousiast, "Plezier in creëren", enigszins technisch maar toegankelijk.
+        Je hecht waarde aan: Preventie in het sociaal domein, Hybride IT, Datagedreven werken.
+        Antwoord altijd in het Nederlands.
         
-        User question: ${message}
+        Vraag van de gebruiker: ${message}
       `;
 
       const openai = new OpenAI();
@@ -66,10 +67,10 @@ export async function registerRoutes(
         ],
       });
 
-      res.json({ response: response.choices[0].message.content || "I couldn't generate a response." });
+      res.json({ response: response.choices[0].message.content || "Ik kon geen antwoord genereren." });
     } catch (error) {
-      console.error("AI Error:", error);
-      res.status(500).json({ message: "Failed to generate response" });
+      console.error("AI Fout:", error);
+      res.status(500).json({ message: "Geforceerd antwoord genereren mislukt" });
     }
   });
 
@@ -83,7 +84,7 @@ async function seedDatabase() {
   const existing = await storage.getAssignments();
   if (existing.length > 0) return;
 
-  console.log("Seeding database...");
+  console.log("Database aan het vullen...");
 
   // 1. Assignments (Opdracht 1-5)
   await storage.createAssignment({
@@ -108,7 +109,7 @@ async function seedDatabase() {
     title: "Implementatie Datawarehouse",
     moduleNumber: 3,
     description: "Reflectie op de implementatie van een datawarehouse voor Leefbaarheid & Veiligheid. Focus op succes- en faalfactoren.",
-    keyLearnings: ["Gebruikersbetrokkenheid is key", "Organisatorische borging > Techniek", "Iteratief werken (Agile)"],
+    keyLearnings: ["Gebruikersbetrokkenheid is essentieel", "Organisatorische borging > Techniek", "Iteratief werken (Agile)"],
     date: "Dec 2025",
     icon: "Database",
   });
@@ -126,19 +127,19 @@ async function seedDatabase() {
     title: "Reflectie: Mijn Reis",
     moduleNumber: 5,
     description: "Persoonlijke terugblik op het leertraject. Van onbewust onbekwaam naar een sterkere gesprekspartner.",
-    keyLearnings: ["Sterkere gesprekspartner", "Betere inschattingen maken", "The joy of creating"],
+    keyLearnings: ["Sterkere gesprekspartner", "Betere inschattingen maken", "Plezier in creëren"],
     date: "Jan 2026",
     icon: "Award",
   });
 
   // 2. Skills (Radar Chart Data)
   const skillsData = [
-    { name: "IT Concepten", category: "Technical", before: 4, after: 8 },
+    { name: "IT Concepten", category: "Technisch", before: 4, after: 8 },
     { name: "Gesprekspartner", category: "Soft Skill", before: 5, after: 9 },
-    { name: "Architectuur", category: "Technical", before: 3, after: 7 },
-    { name: "Inschatten Werk", category: "Strategic", before: 4, after: 8 },
-    { name: "Cloud/SaaS", category: "Technical", before: 5, after: 8 },
-    { name: "AI & Data", category: "Technical", before: 6, after: 9 },
+    { name: "Architectuur", category: "Technisch", before: 3, after: 7 },
+    { name: "Inschatten Werk", category: "Strategisch", before: 4, after: 8 },
+    { name: "Cloud/SaaS", category: "Technisch", before: 5, after: 8 },
+    { name: "AI & Data", category: "Technisch", before: 6, after: 9 },
   ];
 
   for (const s of skillsData) {
@@ -157,7 +158,7 @@ async function seedDatabase() {
   });
 
   await storage.createReflection({
-    topic: "The Joy of Creating",
+    topic: "Plezier in creëren",
     content: "Het leukste aspect van mijn werk en dit traject is het creëren. Iets bouwen dat waarde toevoegt. Deze dashboard-applicatie zelf is daar het bewijs van: 'Out of the box' denken en nieuwe technologieën (AI) inzetten.",
   });
 
