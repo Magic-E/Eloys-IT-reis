@@ -90,17 +90,6 @@ export default function Home() {
                 />
               </AnimatePresence>
               
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-              
-              {/* Slide info */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-card/90 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <p className="text-sm font-medium text-primary mb-1">{slides[currentSlide].title}</p>
-                  <p className="text-lg font-bold">{slides[currentSlide].subtitle}</p>
-                </div>
-              </div>
-
               {/* Navigation arrows */}
               <button 
                 onClick={prevSlide}
