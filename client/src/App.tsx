@@ -9,6 +9,7 @@ import Home from "@/pages/Home";
 import Journey from "@/pages/Journey";
 import Skills from "@/pages/Skills";
 import Reflections from "@/pages/Reflections";
+import ApiIntegration from "@/pages/ApiIntegration";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
           <Route path="/journey" component={Journey} />
           <Route path="/skills" component={Skills} />
           <Route path="/reflections" component={Reflections} />
+          <Route path="/api-integratie" component={ApiIntegration} />
           <Route component={NotFound} />
         </Switch>
       </main>

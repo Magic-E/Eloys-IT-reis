@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/journey", label: "My Journey" },
-  { path: "/skills", label: "Skills Radar" },
-  { path: "/reflections", label: "Reflections" },
+  { path: "/journey", label: "Mijn Reis" },
+  { path: "/skills", label: "Vaardigheden" },
+  { path: "/reflections", label: "Reflecties" },
+  { path: "/api-integratie", label: "API-integratie" },
 ];
 
 export function Navigation() {
