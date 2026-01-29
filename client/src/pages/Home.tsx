@@ -1,10 +1,36 @@
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, BrainCircuit, Database, Layers, Rocket } from "lucide-react";
+import { ArrowRight, BrainCircuit, Database, Layers, Rocket, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/images/hero-learning.jpg";
+
+import slide1 from "@/assets/images/slide-1-waardeketen.jpg";
+import slide2 from "@/assets/images/slide-2-cloud.jpg";
+import slide3 from "@/assets/images/slide-3-datawarehouse.jpg";
+import slide4 from "@/assets/images/slide-4-ai.jpg";
+import slide5 from "@/assets/images/slide-5-reflectie.jpg";
+
+const slides = [
+  { image: slide1, title: "Opdracht 1", subtitle: "Waardeketen & IM Rol" },
+  { image: slide2, title: "Opdracht 2", subtitle: "Hybride IT & Cloud" },
+  { image: slide3, title: "Opdracht 3", subtitle: "Datawarehouse" },
+  { image: slide4, title: "Opdracht 4", subtitle: "AI Innovatie" },
+  { image: slide5, title: "Opdracht 5", subtitle: "Reflectie" },
+];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+
   return (
     <div className="min-h-[calc(100vh-64px)] flex flex-col justify-center relative overflow-hidden">
       {/* Abstract Background Elements */}
@@ -49,27 +75,71 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Hero Image */}
+          {/* Image Slider */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10">
-              <img 
-                src={heroImage} 
-                alt="Leren en innoveren" 
-                className="w-full h-auto object-cover aspect-[4/3]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10 aspect-[4/3]">
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentSlide}
+                  src={slides[currentSlide].image}
+                  alt={slides[currentSlide].subtitle}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5 }}
+                  className="w-full h-full object-cover absolute inset-0"
+                />
+              </AnimatePresence>
+              
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
+              
+              {/* Slide info */}
               <div className="absolute bottom-6 left-6 right-6">
                 <div className="bg-card/90 backdrop-blur-sm rounded-xl p-4 border border-white/10">
-                  <p className="text-sm font-medium text-primary mb-1">Eloy Hoofs</p>
-                  <p className="text-xs text-muted-foreground">Technisch Projectleider @ Gemeente Heerlen</p>
+                  <p className="text-sm font-medium text-primary mb-1">{slides[currentSlide].title}</p>
+                  <p className="text-lg font-bold">{slides[currentSlide].subtitle}</p>
                 </div>
               </div>
+
+              {/* Navigation arrows */}
+              <button 
+                onClick={prevSlide}
+                className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-colors"
+                data-testid="button-prev-slide"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={nextSlide}
+                className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-colors"
+                data-testid="button-next-slide"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
             </div>
+
+            {/* Slide indicators */}
+            <div className="flex justify-center gap-2 mt-4">
+              {slides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    idx === currentSlide 
+                      ? "bg-primary w-6" 
+                      : "bg-white/30 hover:bg-white/50"
+                  }`}
+                  data-testid={`button-slide-${idx}`}
+                />
+              ))}
+            </div>
+
             {/* Decorative elements */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/30 rounded-full blur-2xl" />
             <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/30 rounded-full blur-2xl" />
