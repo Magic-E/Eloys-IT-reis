@@ -5,14 +5,10 @@ import { ArrowRight, BrainCircuit, Database, Layers, Rocket, ChevronLeft, Chevro
 import { Button } from "@/components/ui/button";
 
 import slideDashboard from "@/assets/images/hero-learning.jpg";
-import slideICM from "@/assets/images/slide-icm.jpg";
-import slideGemeente from "@/assets/images/slide-gemeente.jpg";
 import slideSmartForest from "@/assets/images/slide-smart-forest.png";
 
 const slides = [
   { image: slideDashboard, title: "Leerdashboard", subtitle: "IT Basisopleiding Overzicht" },
-  { image: slideICM, title: "ICM Opleidingen", subtitle: "Waar ik de opleiding volg" },
-  { image: slideGemeente, title: "Gemeente Heerlen", subtitle: "Mijn werkgever" },
   { image: slideSmartForest, title: "Smart Forest Guardian", subtitle: "6G Innovatie Project" },
 ];
 
