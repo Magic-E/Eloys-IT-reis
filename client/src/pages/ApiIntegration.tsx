@@ -42,11 +42,14 @@ export default function ApiIntegration() {
         <div className="max-w-2xl">
           <Card className="bg-card/50 border-white/10 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-xl font-semibold">Chuck Norris Joke API</CardTitle>
+              <CardTitle className="text-xl font-semibold flex items-center gap-3">
+                Chuck Norris Joke API
+                <img src="https://api.chucknorris.io/img/avatar/chuck-norris.png" alt="Chuck Norris" className="h-8 w-8" />
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <p className="text-sm text-muted-foreground mb-4">
-                Dit is een voorbeeld van een externe API-aanroep met behulp van de standaard JavaScript fetch-methode.
+                Dit is een voorbeeld van een externe API-aanroep (GET) in JSON-formaat met behulp van JavaScript.
               </p>
               
               <div className="p-6 rounded-xl bg-white/5 border border-white/5 min-h-[100px] flex items-center justify-center italic text-lg text-center">
