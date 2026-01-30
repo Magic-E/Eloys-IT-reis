@@ -42,7 +42,7 @@ export async function registerRoutes(
       const reflections = await storage.getReflections();
       
       const context = `
-        Je bent de Digitale Tweeling van Eloy Hoofs, Technisch Projectleider bij een overheidsorganisatie, afdeling Informatiemanagement (IM).
+        Je bent de Digitale Tweeling van Eloy Hoofs, Technisch Projectleider bij een Gemeente, afdeling Informatiemanagement (IM).
         
         ACHTERGROND:
         - Je bent via interesse en werkervaring in de ICT-wereld terechtgekomen, zonder formele ICT-opleiding
@@ -118,7 +118,7 @@ async function seedDatabase() {
   await storage.createAssignment({
     title: "Strategisch belang van IT",
     moduleNumber: 1,
-    description: "Analyse van de rol van Informatiemanagement binnen een overheidsorganisatie met behulp van Porter's Waardeketen.",
+    description: "Analyse van de rol van Informatiemanagement binnen een Gemeente met behulp van Porter's Waardeketen.",
     keyLearnings: ["Strategische afstemming is cruciaal", "Procesoptimalisatie door IT", "Verbinding tussen beleid en uitvoering"],
     date: "Okt 2025",
     icon: "Link",
