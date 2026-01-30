@@ -181,8 +181,8 @@ async function seedDatabase() {
 
   // 3. Reflections
   await storage.createReflection({
-    topic: "Persoonlijke Groei",
-    content: "Ik ben gegroeid van iemand die 'in het vak gerold' is naar een technisch projectleider die de fundamenten begrijpt. Ik kan nu leveranciers kritisch bevragen en laat me niet meer overdonderen door jargon.",
+    topic: "Persoonlijke groei",
+    content: "Ik ben gegroeid van iemand die 'in het vak gerold' is naar een technisch projectleider die de fundamenten begrijpt. Ik kan nu leveranciers kritisch bevragen en laat me niet meer overdonderen door jargon. Met name in netwerkbeheer is het inzicht groter geworden.",
   });
 
   await storage.createReflection({
@@ -192,11 +192,11 @@ async function seedDatabase() {
 
   await storage.createReflection({
     topic: "Toekomst & AI",
-    content: "De impact van AI gaat enorm zijn, vooral in het sociaal domein (preventie). Ik zie mijn rol als verbinder tussen deze nieuwe technische mogelijkheden en de ethische/praktische toepassing binnen de overheid.",
+    content: "De impact van AI gaat enorm zijn, dat zie ik nu al in het sociaal domein. Ik zie mijn rol als verbinder tussen deze nieuwe technische mogelijkheden en het opruimen van legacy.",
   });
   
   await storage.createReflection({
     topic: "Organisatie",
-    content: "Bevestiging dat we als afdeling goed bezig zijn. Onze Prince2 agile is misschien niet altijd 'echt' agile door aanbestedingen, maar we boeken resultaat door praktijkgericht te blijven.",
+    content: "Bevestiging dat we als afdeling goed bezig zijn. Wellicht niet altijd 100% volgens Prince2 Agile, maar we boeken resultaat door praktijkgericht te blijven. Dat is waar het om draait.",
   });
 }
