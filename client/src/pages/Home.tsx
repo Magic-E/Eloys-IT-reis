@@ -53,7 +53,7 @@ export default function Home() {
               <span className="text-gradient">Creating Future IT</span>
             </h1>
             <p className="text-sm text-primary/80 font-medium mb-2">
-              Eloy Hoofs | Technisch Projectleider | Gemeente Heerlen, afdeling Informatiemanagement
+              Eloy Hoofs | Technisch Projectleider | Overheid, afdeling Informatiemanagement
             </p>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
               Als bruggenbouwer tussen techniek en organisatie heb ik de IT Basisopleiding doorlopen. 
