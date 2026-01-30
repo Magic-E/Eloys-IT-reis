@@ -137,11 +137,11 @@ async function seedDatabase() {
 
   // 2. Skills (Radar Chart Data)
   const skillsData = [
-    { name: "IT Concepten", category: "Technisch", before: 4, after: 8 },
-    { name: "Gesprekspartner", category: "Soft Skill", before: 5, after: 9 },
-    { name: "Architectuur", category: "Technisch", before: 3, after: 7 },
-    { name: "Inschatten Werk", category: "Strategisch", before: 4, after: 8 },
-    { name: "Cloud/SaaS", category: "Technisch", before: 5, after: 8 },
+    { name: "IT concepten", category: "Technisch", before: 5, after: 9 },
+    { name: "Gesprekspartner", category: "Soft Skill", before: 6, after: 8 },
+    { name: "Architectuur", category: "Technisch", before: 6, after: 8 },
+    { name: "Inschatten werk", category: "Strategisch", before: 4, after: 6 },
+    { name: "Programmeren", category: "Technisch", before: 4, after: 7 },
     { name: "AI & Data", category: "Technisch", before: 6, after: 9 },
   ];
 

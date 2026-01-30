@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button";
 
 import slideDashboard from "@/assets/images/hero-learning.jpg";
 import slideSmartForest from "@/assets/images/slide-smart-forest.png";
+import slideKahoot from "@/assets/images/slide-kahoot.jpg";
 
 const slides = [
-  { image: slideDashboard, title: "Leerdashboard", subtitle: "IT Basisopleiding Overzicht" },
-  { image: slideSmartForest, title: "Smart Forest Guardian", subtitle: "6G Innovatie Project" },
+  { image: slideDashboard },
+  { image: slideSmartForest },
+  { image: slideKahoot },
 ];
 
 export default function Home() {
