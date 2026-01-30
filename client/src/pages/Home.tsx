@@ -85,7 +85,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10 aspect-[4/3]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-primary/20 border border-white/10 aspect-[4/3] bg-black/20">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentSlide}
@@ -95,7 +95,7 @@ export default function Home() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -50 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full h-full object-cover absolute inset-0"
+                  className="w-full h-full object-contain absolute inset-0"
                 />
               </AnimatePresence>
               
