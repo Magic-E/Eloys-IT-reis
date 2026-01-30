@@ -52,9 +52,12 @@ export default function Home() {
               The Joy of <br />
               <span className="text-gradient">Creating Future IT</span>
             </h1>
+            <p className="text-sm text-primary/80 font-medium mb-2">
+              Eloy Hoofs | Technisch Projectleider | Gemeente Heerlen, afdeling Informatiemanagement
+            </p>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed">
-              Ontdek mijn reis door de IT-modules, van datawarehousing tot AI-innovatie. 
-              Bekijk de vaardigheden die ik heb ontwikkeld en de projecten die ik heb gebouwd.
+              Als bruggenbouwer tussen techniek en organisatie heb ik de IT Basisopleiding doorlopen. 
+              Ontdek mijn reis van datawarehousing tot AI-innovatie, en de vaardigheden die ik heb ontwikkeld.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
