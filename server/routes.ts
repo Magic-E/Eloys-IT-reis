@@ -116,7 +116,7 @@ async function seedDatabase() {
 
   // 1. Assignments (Opdracht 1-5)
   await storage.createAssignment({
-    title: "Waardeketen & IM Rol",
+    title: "Strategisch belang van IT",
     moduleNumber: 1,
     description: "Analyse van de rol van Informatiemanagement binnen Gemeente Heerlen met behulp van Porter's Waardeketen.",
     keyLearnings: ["Strategische afstemming is cruciaal", "Procesoptimalisatie door IT", "Verbinding tussen beleid en uitvoering"],
