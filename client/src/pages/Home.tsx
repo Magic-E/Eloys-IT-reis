@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button";
 
 import slideDashboard from "@/assets/images/hero-learning.jpg";
 import slideSmartForest from "@/assets/images/slide-smart-forest.png";
-import slideKahoot from "@/assets/images/slide-kahoot.jpg";
 import slideHouse from "@/assets/images/slide-house.jpg";
 import slideVibe from "@/assets/images/slide-vibe.png";
+import slideMarshmallow from "@/assets/images/slide-marshmallow.png";
 
 const slides = [
   { image: slideDashboard },
   { image: slideSmartForest },
-  { image: slideKahoot },
   { image: slideHouse },
   { image: slideVibe },
+  { image: slideMarshmallow },
 ];
 
 export default function Home() {
