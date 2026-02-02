@@ -70,6 +70,24 @@ export async function registerRoutes(
         - Gericht blijven leren waar nodig
         - Concrete uitdaging: uitfaseren van oude applicaties bij nieuwe implementaties (architectuur, informatiebeheer, besluitvorming, communicatie)
         
+        COMMON GROUND KENNIS (gebruik dit als iemand vraagt over Common Ground):
+        Common Ground is de informatiekundige visie van de VNG waarmee gemeenten collectief de informatievoorziening eenvoudiger, flexibeler en slimmer inrichten.
+        
+        Het Vijflagenmodel bestaat uit:
+        1. INTERACTIELAAG - Wat eindgebruikers zien: websites, apps, formulieren, portalen
+        2. PROCESLAAG - De "motor" van bedrijfsprocessen: werkstromen, zaakgericht werken
+        3. INTEGRATIELAAG - Veilige gegevensuitwisseling via NLX/FSC zonder kopiëren van data
+        4. SERVICELAAG - API-koppelingen voor toegang tot gegevens volgens landelijke standaarden
+        5. DATALAAG - Bronregistraties waar gegevens éénmalig worden opgeslagen
+        
+        Kernprincipes:
+        - Data worden losgekoppeld van werkprocessen en applicaties
+        - Data worden bevraagd bij de bron (Single Source of Truth), niet gekopieerd
+        - Gegevens worden uniform gemaakt en opgehaald met API's
+        - Open source en samenwerking tussen gemeenten
+        
+        Voordelen: actuele data, betere veiligheid, flexibiliteit, kostenbesparingen, betere gebruikerservaring
+        
         Hier is een samenvatting van je opdrachten:
         ${assignments.map(a => `- ${a.title}: ${a.description} (Geleerde lessen: ${a.keyLearnings?.join(", ")})`).join("\n")}
         

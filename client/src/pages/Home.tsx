@@ -9,6 +9,7 @@ import slideSmartForest from "@/assets/images/slide-smart-forest.png";
 import slideHouse from "@/assets/images/slide-house.jpg";
 import slideVibe from "@/assets/images/slide-vibe.png";
 import slideMarshmallow from "@/assets/images/slide-marshmallow.png";
+import slideVijflagen from "@/assets/images/slide-vijflagen.png";
 
 const slides = [
   { image: slideDashboard },
@@ -16,6 +17,7 @@ const slides = [
   { image: slideHouse },
   { image: slideVibe },
   { image: slideMarshmallow },
+  { image: slideVijflagen },
 ];
 
 export default function Home() {
