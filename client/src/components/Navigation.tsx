@@ -17,7 +17,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/80 backdrop-blur-xl">
+    <nav className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur-xl">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 cursor-pointer">
@@ -70,7 +70,7 @@ export function Navigation() {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-white/10 bg-background"
+          className="md:hidden border-t border-border bg-background"
         >
           <div className="space-y-1 px-4 py-4">
             {navItems.map((item) => (
@@ -79,7 +79,7 @@ export function Navigation() {
                   className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer ${
                     location === item.path 
                       ? "bg-primary/10 text-primary" 
-                      : "text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                      : "text-muted-foreground hover:bg-muted hover:text-foreground"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >

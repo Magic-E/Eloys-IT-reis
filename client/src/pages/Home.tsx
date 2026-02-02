@@ -71,7 +71,7 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/skills">
-                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto bg-white/5 border-white/10 hover:bg-white/10" data-testid="button-check-skills">
+                <Button variant="outline" size="lg" className="rounded-full px-8 h-12 text-base font-semibold w-full sm:w-auto" data-testid="button-check-skills">
                   Bekijk vaardigheden
                 </Button>
               </Link>

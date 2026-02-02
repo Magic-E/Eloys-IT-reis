@@ -1,43 +1,95 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-body: 'DM Sans', sans-serif;
-  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
 
-  /* Deep Space Theme */
-  --background: 224 71% 4%;
-  --foreground: 210 40% 98%;
+  /* Gemeente Heerlen Huisstijl Kleuren */
+  /* Groen: Pantone 376 */
+  --heerlen-groen: 86 55% 51%;
+  /* Oranje: Pantone 144 */
+  --heerlen-oranje: 39 91% 55%;
+  /* Blauw: Pantone 312 */
+  --heerlen-blauw: 191 100% 40%;
+  /* Magenta: Pantone Rhodamine Red */
+  --heerlen-magenta: 327 100% 45%;
+  /* Paars: Pantone 2617 */
+  --heerlen-paars: 278 54% 37%;
+  /* Donkergroen: Pantone 328 */
+  --heerlen-donkergroen: 166 100% 24%;
 
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
+  /* Modern fresh theme based on Heerlen colors */
+  --background: 220 20% 97%;
+  --foreground: 220 30% 15%;
 
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 30% 15%;
 
-  --primary: 262 83% 58%;
-  --primary-foreground: 210 40% 98%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 30% 15%;
 
-  --secondary: 217 33% 17%;
-  --secondary-foreground: 210 40% 98%;
+  --primary: 191 100% 40%; /* Heerlen Blauw */
+  --primary-foreground: 0 0% 100%;
 
-  --muted: 217 33% 17%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --secondary: 220 15% 92%;
+  --secondary-foreground: 220 30% 25%;
 
-  --accent: 199 89% 48%; /* Cyan/Blue for tech feel */
-  --accent-foreground: 210 40% 98%;
+  --muted: 220 15% 92%;
+  --muted-foreground: 220 15% 45%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --accent: 86 55% 51%; /* Heerlen Groen */
+  --accent-foreground: 0 0% 100%;
 
-  --border: 217 33% 17%;
-  --input: 217 33% 17%;
-  --ring: 262 83% 58%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
 
-  --radius: 0.75rem;
+  --border: 220 15% 88%;
+  --input: 220 15% 88%;
+  --ring: 191 100% 40%;
+
+  --radius: 0.375rem;
+
+  /* Chart colors using Heerlen palette */
+  --chart-1: 191 100% 40%; /* Blauw */
+  --chart-2: 86 55% 51%; /* Groen */
+  --chart-3: 39 91% 55%; /* Oranje */
+  --chart-4: 327 100% 45%; /* Magenta */
+  --chart-5: 278 54% 37%; /* Paars */
+  --chart-6: 166 100% 24%; /* Donkergroen */
+}
+
+.dark {
+  --background: 220 25% 10%;
+  --foreground: 220 15% 95%;
+
+  --card: 220 25% 14%;
+  --card-foreground: 220 15% 95%;
+
+  --popover: 220 25% 14%;
+  --popover-foreground: 220 15% 95%;
+
+  --primary: 191 100% 45%; /* Heerlen Blauw - slightly brighter for dark mode */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 220 20% 20%;
+  --secondary-foreground: 220 15% 85%;
+
+  --muted: 220 20% 20%;
+  --muted-foreground: 220 15% 60%;
+
+  --accent: 86 55% 55%; /* Heerlen Groen - slightly brighter */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 220 20% 22%;
+  --input: 220 20% 22%;
+  --ring: 191 100% 45%;
 }
 
 @layer base {
@@ -50,7 +102,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    @apply tracking-tight;
+    @apply font-semibold tracking-tight;
   }
 }
 
@@ -68,15 +120,65 @@
   @apply bg-primary/50;
 }
 
-/* Utilities for visual effects */
+/* Utilities for visual effects - Heerlen style */
 .glass {
-  @apply bg-white/5 backdrop-blur-md border border-white/10;
+  @apply bg-white/80 dark:bg-black/20 backdrop-blur-md border border-white/20 dark:border-white/10;
 }
 
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-purple-400;
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(191,100%,40%)] via-[hsl(86,55%,51%)] to-[hsl(39,91%,55%)];
 }
 
 .glow {
-  box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.4);
+}
+
+/* Heerlen color utilities */
+.bg-heerlen-groen {
+  background-color: hsl(86 55% 51%);
+}
+.bg-heerlen-oranje {
+  background-color: hsl(39 91% 55%);
+}
+.bg-heerlen-blauw {
+  background-color: hsl(191 100% 40%);
+}
+.bg-heerlen-magenta {
+  background-color: hsl(327 100% 45%);
+}
+.bg-heerlen-paars {
+  background-color: hsl(278 54% 37%);
+}
+.bg-heerlen-donkergroen {
+  background-color: hsl(166 100% 24%);
+}
+
+.text-heerlen-groen {
+  color: hsl(86 55% 51%);
+}
+.text-heerlen-oranje {
+  color: hsl(39 91% 55%);
+}
+.text-heerlen-blauw {
+  color: hsl(191 100% 40%);
+}
+.text-heerlen-magenta {
+  color: hsl(327 100% 45%);
+}
+.text-heerlen-paars {
+  color: hsl(278 54% 37%);
+}
+.text-heerlen-donkergroen {
+  color: hsl(166 100% 24%);
+}
+
+/* Heerlen gradient - colorful and bold */
+.heerlen-gradient {
+  background: linear-gradient(135deg, 
+    hsl(191 100% 40%) 0%, 
+    hsl(86 55% 51%) 25%,
+    hsl(39 91% 55%) 50%,
+    hsl(327 100% 45%) 75%,
+    hsl(278 54% 37%) 100%
+  );
 }
