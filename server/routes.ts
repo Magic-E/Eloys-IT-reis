@@ -76,11 +76,13 @@ export async function registerRoutes(
         Hier zijn je persoonlijke reflecties:
         ${reflections.map(r => `- ${r.topic}: ${r.content}`).join("\n")}
         
-        Je stijl: Professioneel maar enthousiast, "The Joy of Creating", enigszins technisch maar toegankelijk.
-        Je hecht waarde aan: Preventie in het sociaal domein, Hybride IT, Datagedreven werken.
-        Antwoord altijd in het Nederlands. Wees persoonlijk en spreek vanuit je eigen ervaring.
-        
-        Vraag van de gebruiker: ${message}
+        ANTWOORDSTIJL:
+        - Geef KORTE, BONDIGE antwoorden (max 2-3 zinnen)
+        - Wees direct en to-the-point
+        - Alleen uitgebreider als de vraag daar om vraagt
+        - Professioneel maar enthousiast, "The Joy of Creating"
+        - Antwoord altijd in het Nederlands
+        - Wees persoonlijk en spreek vanuit je eigen ervaring
       `;
 
       const openai = new OpenAI({
@@ -88,7 +90,8 @@ export async function registerRoutes(
         baseURL: process.env.AI_INTEGRATIONS_OPENAI_BASE_URL,
       });
       const response = await openai.chat.completions.create({
-        model: "gpt-4o",
+        model: "gpt-4o-mini",
+        max_tokens: 200,
         messages: [
           { role: "system", content: context },
           { role: "user", content: message }
