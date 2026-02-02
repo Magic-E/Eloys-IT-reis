@@ -22,10 +22,12 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2 cursor-pointer">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-display font-bold text-lg">E</span>
+            <div className="h-8 w-8 rounded-md flex items-center justify-center relative overflow-hidden" style={{
+              background: "linear-gradient(135deg, hsl(191 100% 40%) 0%, hsl(86 55% 51%) 50%, hsl(39 91% 55%) 100%)"
+            }}>
+              <span className="text-white font-bold text-lg" style={{ fontFamily: "Montserrat, sans-serif" }}>E</span>
             </div>
-            <span className="font-display font-bold text-xl tracking-tight hidden sm:block">
+            <span className="font-bold text-xl tracking-tight hidden sm:block">
               Eloy's Leerdashboard
             </span>
           </Link>
