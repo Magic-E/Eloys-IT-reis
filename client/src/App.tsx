@@ -10,7 +10,6 @@ import Journey from "@/pages/Journey";
 import Skills from "@/pages/Skills";
 import Reflections from "@/pages/Reflections";
 import ApiIntegration from "@/pages/ApiIntegration";
-import DigitaleToegankelijkheid from "@/pages/DigitaleToegankelijkheid";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -24,7 +23,6 @@ function Router() {
           <Route path="/skills" component={Skills} />
           <Route path="/reflections" component={Reflections} />
           <Route path="/api-integratie" component={ApiIntegration} />
-          <Route path="/toegankelijkheid" component={DigitaleToegankelijkheid} />
           <Route component={NotFound} />
         </Switch>
       </main>

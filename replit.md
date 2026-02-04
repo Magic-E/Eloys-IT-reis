@@ -81,5 +81,4 @@ These are optional integrations that can be enabled by calling their registratio
 - **Mijn reis**: Learning journey assignments
 - **Vaardigheden**: Skills radar chart and progression
 - **Reflecties**: Personal reflections on learning
-- **API-integratie**: Demo API calls (Chuck Norris, Vlaai API, data source references)
-- **Toegankelijkheid**: Digital accessibility dashboard and municipal statistics for Gemeente Heerlen
+- **API-integraties**: Demo API calls (Chuck Norris, Vlaai API) + Digital accessibility dashboard and municipal statistics for Gemeente Heerlen
