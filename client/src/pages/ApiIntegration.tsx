@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RefreshCw, Zap, Cake } from "lucide-react";
+import { RefreshCw, Zap, Cake, Accessibility, BarChart3, ExternalLink } from "lucide-react";
 
 const vlaaiAntwoorden = [
   "Ja!",
@@ -142,6 +142,78 @@ export default function ApiIntegration() {
                 <RefreshCw className={`mr-2 h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
                 Nieuwe grap ophalen
               </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/50 border-white/10 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold flex items-center gap-3">
+                <Accessibility className="h-6 w-6 text-blue-500" />
+                Digitoegankelijk.nl API
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Dashboard voor digitale toegankelijkheid van overheidsorganisaties. Toont de status van 
+                toegankelijkheidsverklaringen voor websites en mobiele apps van Gemeente Heerlen.
+              </p>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/5">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Organisatie-ID:</span>
+                    <span className="ml-2 font-mono">281</span>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Type:</span>
+                    <span className="ml-2">JSON Dashboard</span>
+                  </div>
+                </div>
+              </div>
+              <a 
+                href="https://dashboard.digitoegankelijk.nl/organisaties/281" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-primary flex items-center gap-1 hover:underline"
+                data-testid="link-digitoegankelijk-api"
+              >
+                Bekijk live dashboard <ExternalLink className="h-3 w-3" />
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/50 border-white/10 backdrop-blur-sm">
+            <CardHeader>
+              <CardTitle className="text-xl font-semibold flex items-center gap-3">
+                <BarChart3 className="h-6 w-6 text-green-500" />
+                Waarstaatjegemeente.nl API
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                VNG benchmark portal met statistieken en kerncijfers van Nederlandse gemeenten. Bevolkingsdata, 
+                sociaal-economische indicatoren en vergelijkingen tussen gemeenten.
+              </p>
+              <div className="p-4 rounded-lg bg-white/5 border border-white/5">
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <span className="text-muted-foreground">Gemeentecode:</span>
+                    <span className="ml-2 font-mono">0951</span>
+                  </div>
+                  <div>
+                    <span className="text-muted-foreground">Type:</span>
+                    <span className="ml-2">OData JSON API</span>
+                  </div>
+                </div>
+              </div>
+              <a 
+                href="https://www.waarstaatjegemeente.nl" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-sm text-primary flex items-center gap-1 hover:underline"
+                data-testid="link-waarstaatjegemeente-api"
+              >
+                Bekijk portal <ExternalLink className="h-3 w-3" />
+              </a>
             </CardContent>
           </Card>
         </div>

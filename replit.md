@@ -73,3 +73,13 @@ These are optional integrations that can be enabled by calling their registratio
 
 ### External APIs Used
 - Chuck Norris Jokes API (`api.chucknorris.io`) - Demo of external API integration on the API Integration page
+- Digitoegankelijk.nl Dashboard (organisatie-ID: 281) - Digital accessibility status for Gemeente Heerlen
+- Waarstaatjegemeente.nl / CBS - Municipal statistics (gemeentecode: 0951)
+
+### Pages
+- **Home**: Hero slider, features overview
+- **Mijn reis**: Learning journey assignments
+- **Vaardigheden**: Skills radar chart and progression
+- **Reflecties**: Personal reflections on learning
+- **API-integratie**: Demo API calls (Chuck Norris, Vlaai API, data source references)
+- **Toegankelijkheid**: Digital accessibility dashboard and municipal statistics for Gemeente Heerlen
