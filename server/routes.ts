@@ -33,6 +33,15 @@ export async function registerRoutes(
     res.json(data);
   });
 
+  // === VLAAI API ROUTE ===
+  app.get("/api/vlaai/random", async (req, res) => {
+    const antwoord = await storage.getRandomVlaaiAntwoord();
+    if (!antwoord) {
+      return res.json({ antwoord: "Geen antwoord beschikbaar" });
+    }
+    res.json(antwoord);
+  });
+
   // === OPENAI CHAT ROUTE ===
   app.post(api.chat.send.path, async (req, res) => {
     try {

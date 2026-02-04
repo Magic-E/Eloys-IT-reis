@@ -29,6 +29,11 @@ export const reflections = pgTable("reflections", {
   content: text("content").notNull(),
 });
 
+export const vlaaiAntwoorden = pgTable("vlaai_antwoorden", {
+  id: serial("id").primaryKey(),
+  antwoord: text("antwoord").notNull(),
+});
+
 // === EXPLICIT API CONTRACT TYPES ===
 
 export type Assignment = typeof assignments.$inferSelect;
@@ -39,6 +44,9 @@ export type InsertSkill = typeof skills.$inferInsert;
 
 export type Reflection = typeof reflections.$inferSelect;
 export type InsertReflection = typeof reflections.$inferInsert;
+
+export type VlaaiAntwoord = typeof vlaaiAntwoorden.$inferSelect;
+export type InsertVlaaiAntwoord = typeof vlaaiAntwoorden.$inferInsert;
 
 // Chat types
 export const chatRequestSchema = z.object({

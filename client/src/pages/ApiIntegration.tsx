@@ -5,44 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { RefreshCw, Zap, Cake, Accessibility, BarChart3, ExternalLink, CheckCircle, AlertCircle, HelpCircle, TrendingUp } from "lucide-react";
 
-const vlaaiAntwoorden = [
-  "Ja!",
-  "Natuurlijk!",
-  "Absoluut!",
-  "Zeker weten!",
-  "100%!",
-  "Komt eraan...",
-  "Is al op!",
-  "Bijna...",
-  "Even afwachten!",
-  "Misschien...",
-  "Wordt aan gewerkt!",
-  "De bakker is onderweg!",
-  "Vandaag is vlaaidag!",
-  "Alleen als je lief vraagt!",
-  "Er staat er eentje klaar!",
-  "Warm uit de oven!",
-  "Wie jarig is trakteert!",
-  "Limburgse traditie!",
-  "Met slagroom erbij!",
-  "Kersenvlaai vandaag!",
-  "Rijstevlaai special!",
-  "Abrikozenvlaai alert!",
-  "Pruimenvlaai loading...",
-  "Appelvlaai incoming!",
-  "Gegarandeerd vers!",
-  "De koffie staat ook klaar!",
-  "Vraag het de stagiair!",
-  "Check de kantine!",
-  "Ruik je het al?",
-  "Geduld wordt beloond!",
-];
-
-function getRandomVlaaiAnswer(): string {
-  const index = Math.floor(Math.random() * vlaaiAntwoorden.length);
-  return vlaaiAntwoorden[index];
-}
-
 const toegankelijkheidData = {
   organisatie: "Gemeente Heerlen",
   organisatieId: 281,
@@ -102,11 +64,25 @@ function StatusIcon({ code }: { code: string }) {
 export default function ApiIntegration() {
   const [joke, setJoke] = useState<string>("");
   const [loading, setLoading] = useState(true);
-  const [vlaaiAnswer, setVlaaiAnswer] = useState<string>(() => getRandomVlaaiAnswer());
+  const [vlaaiAnswer, setVlaaiAnswer] = useState<string>("");
+  const [vlaaiLoading, setVlaaiLoading] = useState(true);
 
-  const refreshVlaai = () => {
-    setVlaaiAnswer(getRandomVlaaiAnswer());
+  const fetchVlaaiAnswer = async () => {
+    setVlaaiLoading(true);
+    try {
+      const response = await fetch("/api/vlaai/random");
+      const data = await response.json();
+      setVlaaiAnswer(data.antwoord);
+    } catch (error) {
+      setVlaaiAnswer("Kon geen antwoord ophalen");
+    } finally {
+      setVlaaiLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fetchVlaaiAnswer();
+  }, []);
 
   const voldoetAanWet = toegankelijkheidData.statussen
     .filter(s => ["A", "B", "C"].includes(s.code))
@@ -164,20 +140,25 @@ export default function ApiIntegration() {
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: "spring", stiffness: 200 }}
-                    className="p-6 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30"
+                    className="p-6 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 min-h-[80px] flex items-center justify-center"
                   >
-                    <p className="text-3xl md:text-4xl font-display font-bold text-amber-500" data-testid="text-vlaai-answer">
-                      {vlaaiAnswer}
-                    </p>
+                    {vlaaiLoading ? (
+                      <RefreshCw className="h-6 w-6 animate-spin text-amber-500" />
+                    ) : (
+                      <p className="text-3xl md:text-4xl font-display font-bold text-amber-500" data-testid="text-vlaai-answer">
+                        {vlaaiAnswer}
+                      </p>
+                    )}
                   </motion.div>
                 </div>
 
                 <Button 
-                  onClick={refreshVlaai}
+                  onClick={fetchVlaaiAnswer}
+                  disabled={vlaaiLoading}
                   className="w-full"
                   data-testid="button-refresh-vlaai"
                 >
-                  <RefreshCw className="mr-2 h-4 w-4" />
+                  <RefreshCw className={`mr-2 h-4 w-4 ${vlaaiLoading ? 'animate-spin' : ''}`} />
                   Opnieuw vragen
                 </Button>
               </CardContent>
