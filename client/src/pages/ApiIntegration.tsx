@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -38,10 +38,8 @@ const vlaaiAntwoorden = [
   "Geduld wordt beloond!",
 ];
 
-function getDailyVlaaiAnswer(): string {
-  const today = new Date();
-  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
-  const index = seed % vlaaiAntwoorden.length;
+function getRandomVlaaiAnswer(): string {
+  const index = Math.floor(Math.random() * vlaaiAntwoorden.length);
   return vlaaiAntwoorden[index];
 }
 
@@ -104,8 +102,11 @@ function StatusIcon({ code }: { code: string }) {
 export default function ApiIntegration() {
   const [joke, setJoke] = useState<string>("");
   const [loading, setLoading] = useState(true);
+  const [vlaaiAnswer, setVlaaiAnswer] = useState<string>(() => getRandomVlaaiAnswer());
 
-  const vlaaiAnswer = useMemo(() => getDailyVlaaiAnswer(), []);
+  const refreshVlaai = () => {
+    setVlaaiAnswer(getRandomVlaaiAnswer());
+  };
 
   const voldoetAanWet = toegankelijkheidData.statussen
     .filter(s => ["A", "B", "C"].includes(s.code))
@@ -157,21 +158,28 @@ export default function ApiIntegration() {
                 </p>
                 
                 <div className="text-center py-4">
-                  <p className="text-sm text-muted-foreground mb-3">Is er vandaag vlaai op kantoor?</p>
+                  <p className="text-sm text-muted-foreground mb-3">Is er vlaai op kantoor?</p>
                   <motion.div
+                    key={vlaaiAnswer}
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
+                    transition={{ type: "spring", stiffness: 200 }}
                     className="p-6 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30"
                   >
                     <p className="text-3xl md:text-4xl font-display font-bold text-amber-500" data-testid="text-vlaai-answer">
                       {vlaaiAnswer}
                     </p>
                   </motion.div>
-                  <p className="text-xs text-muted-foreground mt-3">
-                    Antwoord wordt dagelijks vernieuwd
-                  </p>
                 </div>
+
+                <Button 
+                  onClick={refreshVlaai}
+                  className="w-full"
+                  data-testid="button-refresh-vlaai"
+                >
+                  <RefreshCw className="mr-2 h-4 w-4" />
+                  Opnieuw vragen
+                </Button>
               </CardContent>
             </Card>
 
