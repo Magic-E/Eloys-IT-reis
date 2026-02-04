@@ -10,8 +10,8 @@ const navItems = [
   { path: "/journey", label: "Mijn reis" },
   { path: "/skills", label: "Vaardigheden" },
   { path: "/reflections", label: "Reflecties" },
-  { path: "/api-integratie", label: "API-integratie" },
   { path: "/toegankelijkheid", label: "Toegankelijkheid" },
+  { path: "/api-integratie", label: "API-integraties" },
 ];
 
 export function Navigation() {
