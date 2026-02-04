@@ -1,0 +1,177 @@
+🎯 Projectoverzicht
+
+Projectnaam:
+Digitale Toegankelijkheid Heerlen
+
+Doel van het project:
+Ontwikkel een webapplicatie die inzicht geeft in:
+
+gemeentelijke statistieken van Gemeente Heerlen
+
+én de digitale toegankelijkheidsstatus van de organisatie(s) die aan Heerlen gekoppeld zijn
+
+De applicatie is primair gericht op informatievoorziening, beleidsmatig inzicht en transparantie, met vergelijkingen en trends waar dit inhoudelijk zinvol is.
+
+🖥️ Platform & Hosting
+
+Platform: Webapplicatie
+
+Hosting: Replit hosting
+
+Gebruik: Online (live data via API’s)
+
+🌐 Taalinstellingen
+
+Taal Replit Agent: Nederlands
+
+Taal applicatie (UI): Nederlands
+
+🧱 Technische Architectuur
+
+Backend
+
+Python + Flask
+
+Taken:
+
+API-integratie en data-aggregatie
+
+Normaliseren van verschillende databronnen
+
+Caching (om externe API’s te ontzien)
+
+Frontend
+
+HTML / CSS / JavaScript
+
+Overheidsstijl:
+
+Rustig
+
+Informatief
+
+Toegankelijk (WCAG-bewust)
+
+Grafieken en status-indicatoren
+
+🔌 API-integraties (verplicht)
+1. Waarstaatjegemeente.nl
+
+Gemeentecode: 0951 (Heerlen)
+
+Gebruik JSON-output
+
+Doel:
+
+Bevolking
+
+Sociaal-economische indicatoren
+
+Vergelijking met andere gemeenten
+
+2. Digitoegankelijk.nl Dashboard
+
+Organisatie-ID: 281
+
+Brondocument:
+https://dashboard.digitoegankelijk.nl/organisaties/281
+
+Gebruik onderliggende API-output (JSON) voor:
+
+Toegankelijkheidsstatus
+
+Aantal websites/apps
+
+WCAG-niveau-indicatoren
+
+Verklaringen en voortgang
+
+⚠️ Gebruik deze data informatief en read-only
+⚠️ Geen aannames doen waar data ontbreekt
+
+📄 Pagina’s in de applicatie
+
+Overzicht
+
+Kerncijfers Gemeente Heerlen
+
+Digitale toegankelijkheidsstatus (samenvatting)
+
+Digitale Toegankelijkheid
+
+Statusindicatoren (bijv. “Voldoet / deels / niet”)
+
+Overzicht verklaringen
+
+Eventuele trends (indien data beschikbaar)
+
+Vergelijkingen
+
+Heerlen vs. andere gemeenten (indien zinvol)
+
+Heerlen vs. landelijke gemiddelden
+
+API-integraties
+
+Beschrijving waarstaatjegemeente.nl
+
+Beschrijving digitoegankelijk.nl
+
+Opzet vergelijkbaar met Eloy’s Leerdashboard
+
+Transparantie over databronnen
+
+📊 Functionaliteiten
+
+Filters (jaar, type indicator)
+
+Vergelijkingen alleen tonen bij zinvolle data
+
+Trends visueel maken waar mogelijk
+
+Focus op duiding, niet op dashboards-overload
+
+♿ Digitale Toegankelijkheid (extra belangrijk)
+
+Semantische HTML
+
+Goede contrasten
+
+Toetsenbordnavigatie
+
+Heldere labels en uitleg
+
+Toepasbaar als voorbeeld van “goed toegankelijke overheidsinformatie”
+
+🗂️ Structuur
+/app.py
+/templates
+  - index.html
+  - toegankelijkheid.html
+  - vergelijkingen.html
+  - api_integraties.html
+/static
+  /css
+  /js
+/utils
+  - gemeente_data.py
+  - toegankelijkheid_data.py
+  - normalizer.py
+
+▶️ Run & Deploy
+
+.replit → python app.py
+
+Direct deploybaar via Replit
+
+✅ Verwacht resultaat
+
+Een informatieve, toegankelijke webapp die:
+
+Statistieken van Heerlen toont
+
+Digitale toegankelijkheid inzichtelijk maakt
+
+Transparant is over databronnen
+
+Geschikt is voor onderwijs, beleid of verantwoording
