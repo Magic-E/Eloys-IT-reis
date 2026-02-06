@@ -9,3 +9,10 @@ vite.config.ts.*
 .env.*
 .replit
 .replit/
+
+
+# Node
+node_modules/
+dist/
+.env
+.vite-temp/
