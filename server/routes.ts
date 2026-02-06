@@ -134,8 +134,32 @@ export async function registerRoutes(
 
   // === SEED DATA ===
   await seedDatabase();
+  await seedVlaaiAntwoorden();
 
   return httpServer;
+}
+
+async function seedVlaaiAntwoorden() {
+  const existing = await storage.getAllVlaaiAntwoorden();
+  if (existing.length > 0) return;
+
+  console.log("Vlaai antwoorden aan het vullen...");
+
+  const antwoorden = [
+    "Ja!", "Natuurlijk!", "Absoluut!", "Zeker weten!", "100%!",
+    "Komt eraan...", "Is al op!", "Bijna...", "Even afwachten!", "Misschien...",
+    "Wordt aan gewerkt!", "De bakker is onderweg!", "Vandaag is vlaaidag!",
+    "Alleen als je lief vraagt!", "Er staat er eentje klaar!", "Warm uit de oven!",
+    "Wie jarig is trakteert!", "Limburgse traditie!", "Met slagroom erbij!",
+    "Kersenvlaai vandaag!", "Rijstevlaai special!", "Abrikozenvlaai alert!",
+    "Pruimenvlaai loading...", "Appelvlaai incoming!", "Gegarandeerd vers!",
+    "De koffie staat ook klaar!", "Vraag het de stagiair!", "Check de kantine!",
+    "Ruik je het al?", "Geduld wordt beloond!",
+  ];
+
+  for (const antwoord of antwoorden) {
+    await storage.createVlaaiAntwoord({ antwoord });
+  }
 }
 
 async function seedDatabase() {
