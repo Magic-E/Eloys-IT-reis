@@ -1,0 +1,10 @@
+# .render.yaml
+services:
+  - type: web
+    name: eloyst-it-reis
+    env: node
+    plan: starter
+    nodeVersion: "20"
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm start"
+    rootDirectory: "." # root van je repo, waar package.json staat

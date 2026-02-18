@@ -2,18 +2,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 
-// Alleen importeren als dev in Replit
 const isReplitDev = process.env.NODE_ENV !== "production" && process.env.REPL_ID !== undefined;
 
 export default defineConfig({
   plugins: [
     react(),
-    // Replit plugins dynamisch alleen in dev
     ...(isReplitDev
       ? [
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
           require("@replit/vite-plugin-cartographer").cartographer(),
-          // eslint-disable-next-line @typescript-eslint/no-var-requires
           require("@replit/vite-plugin-dev-banner").devBanner(),
         ]
       : []),
@@ -27,7 +23,7 @@ export default defineConfig({
   },
   root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(__dirname, "dist/public"),
+    outDir: path.resolve(__dirname, "dist/client"), // duidelijk en onafhankelijk van Vite dev
     emptyOutDir: true,
   },
   server: {
@@ -38,10 +34,7 @@ export default defineConfig({
   },
   css: {
     postcss: {
-      plugins: [
-        require("tailwindcss"),
-        require("autoprefixer"),
-      ],
+      plugins: [require("tailwindcss"), require("autoprefixer")],
     },
   },
 });
