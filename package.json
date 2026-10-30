@@ -4,9 +4,9 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "tsc --project tsconfig.build.json && vite build",
+    "build": "tsx script/build.ts",
     "dev": "NODE_ENV=development tsx server/index.ts",
-    "start": "NODE_ENV=production node dist/server/index.js",
+    "start": "NODE_ENV=production node dist/index.cjs",
     "check": "tsc",
     "db:push": "drizzle-kit push"
   },

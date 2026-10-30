@@ -1,15 +1,25 @@
-{
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "noEmit": false,
-    "outDir": "./dist",
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "strict": true
-  },
+
+  {
+    "extends": "./tsconfig.json",
+        "compilerOptions": {
+          "noEmit": false,
+          "outDir": "./dist",
+          "rootDir": ".",
+          "module": "NodeNext",
+          "moduleResolution": "NodeNext",
+          "target": "ES2022",
+          "baseUrl": ".",
+          "paths": {
+            "@shared/*": ["shared/*"],
+            "@/*": ["client/src/*"]
+          },
+          "esModuleInterop": true,
+          "resolveJsonModule": true,
+          "skipLibCheck": true,
+          "strict": true
+        }
+      }
+    },
   "include": ["server/**/*", "client/**/*", "shared/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["client", "node_modules", "dist"]
 }

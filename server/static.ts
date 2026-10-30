@@ -3,8 +3,7 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
-  // Vite build output map
-  const distPath = path.resolve(process.cwd(), "dist");
+  const distPath = path.resolve(process.cwd(), "dist/public");
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -12,11 +11,9 @@ export function serveStatic(app: Express) {
     );
   }
 
-  // serve static assets
   app.use(express.static(distPath));
 
-  // SPA fallback (voor React Router / frontend routes)
-  app.get("*", (_req: Request, res: Response) => {
+  app.get("/{*path}", (_req: Request, res: Response) => {
     res.sendFile(path.join(distPath, "index.html"));
   });
 }
